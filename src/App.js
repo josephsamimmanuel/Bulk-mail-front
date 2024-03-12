@@ -1,6 +1,11 @@
 import axios from "axios";
 import { useState } from "react";
 import * as XLSX from "xlsx"
+import { FaInstagramSquare } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaFacebook } from "react-icons/fa";
+import { FaGithub } from "react-icons/fa";
+import { ImProfile } from "react-icons/im";
 
 function App() {
 
@@ -53,44 +58,46 @@ function App() {
   }
 
   return (
-    <div>
-      <div className="bg-blue-950 text-white text-center">
-        <h1 className="text-2xl font-medium px-5 py-3">BulkMail</h1>
-      </div>
-
-      <div className="bg-blue-800 text-white text-center">
-        <h1 className="font-medium px-5 py-3">We can help your business with sending multiple emails at once</h1>
-      </div>
-
-      <div className="bg-blue-600 text-white text-center">
-        <h1 className="font-medium px-5 py-3">Drag and Drop</h1>
-      </div>
-
-      <div className="bg-blue-400 flex flex-col items-center text-black px-5 py-3">
-        <textarea onChange={handlemsg} value={msg} className="w-[80%] h-32 py-2 outline-none px-2 border border-black rounded-md" placeholder="Enter the email text ...."></textarea>
-
-        <div>
-          <input type="file" onChange={handlefile}  className="border-4 border-dashed py-4 px-4 mt-5 mb-5" />
-        </div>
-
-        <p>Total Emails in the file: {emailList.length}</p>
+    <div className=' h-[100vh] overflow-hidden'>
+          <div className=" bg-blue-900 text-white text-center">
+            <h1 className="text-2xl font-bold px-5 py-3">Bulk Mail</h1>
+          </div>
+          <div className=" bg-blue-800 text-white text-center">
+            <h1 className="text-2xl font-bold px-5 py-3">We can help your business with sending multiple emails at once</h1>
+          </div>
+          <div className=" bg-blue-600 text-white text-center">
+            <h1 className="text-2xl font-bold px-5 py-3">Drag and Drop</h1>
+          </div>
+          <div className=" bg-blue-400 flex flex-col items-center text-black px-5 py-3">
+            <textarea value={msg} onChange={handlemsg} className=" w-[80%] h-32 py-2 px-2 outline-none border border-black rounded-md" placeholder="Enter the Email text"></textarea>
+            <div>
+            <input type="file" onChange={handlefile} className=" border-4 border-dashed py-4 px-4 mt-10 mb-10"/>
+          </div>
+          <p>Total Emails in the file: {emailList.length} </p>
+          <button onClick={send} className=" bg-blue-950 text-white px-2 py-2 rounded-lg w-fit">{status? ("Sending..."):("Send")}</button>
+          </div>
 
 
-
-        <button  onClick={send} className="mt-2 bg-blue-950 py-2 px-2 text-white font-medium rounded-md w-fit">{status?"Sending...":"Send"}</button>
- 
-
-
-
-      </div>
-
-      <div className="bg-blue-300 text-white text-center p-8">
-
-      </div>
-
-      <div className="bg-blue-200 text-white text-center p-8">
-
-      </div>
+          <div className=" bg-blue-800 text-white flex justify-evenly pb-14 pt-14">
+          <div>
+           <p>Created by:</p>
+           <p> Joseph Sam Immanuel</p>
+           <p>Email: josesamimmanuel@gmail.com</p>
+           <p>Contact me: +91 638 175 4592</p>
+           </div>
+           <div>
+           <p>Designed with React, Node, Express</p>
+            <p>Database used: MongoDB</p>
+            <div className=" text-white text-center flex justify-center gap-6 pt-3">
+           <a href="https://www.instagram.com/josesamimmanuel/">
+           <FaInstagramSquare className=' text-xl'/></a>
+          <a href="https://www.linkedin.com/in/josephsamimmanuel/"> <FaLinkedin className=' text-xl'/></a>
+          <a href="https://www.facebook.com/joseph.immanuel.12/"> <FaFacebook className=' text-xl'/></a>
+          <a href="https://github.com/josephsamimmanuel"> <FaGithub className=' text-xl'/></a>
+         <a href="https://josephsamimmanuel.netlify.app/"> <ImProfile className=' text-xl'></ImProfile></a>
+          </div>
+           </div>
+          </div>
 
     </div>
   );
